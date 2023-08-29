@@ -14,3 +14,12 @@ app.get('/', (req, res) => {
     res.render('index', { tasks: tasks });
 });
 
+app.post('/create', (req, res) => {
+    const text = req.body.task;
+    tasks.push({text: text, completed: false});
+    res.redirect("/"); //fishined creating
+});
+
+app.listen(port, () => {
+    console.log(`Listening on port ${port}`);
+  });
